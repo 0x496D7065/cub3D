@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 06:37:59 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/02 20:06:30 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/04 11:37:50 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -46,19 +46,19 @@ static void	dist_to_wall(t_data *data)
 /*
 @glance		each wall will have a different texture. substact to get
 			to the data->textures[] array position in init_textures(). so 
-@if, else	North, east, south, west facing texture.
+@if, else	South, West, North, East facing texture.
 */
 
 static void	assign_texture_to_wall(t_data *data)
 {
 	if (data->ray.side == 0 && data->ray.x < 0)
-		data->ray.tex_nr = (data->map[data->ray.map_x][data->ray.map_y] - 49);
-	else if (data->ray.side == 1 && data->ray.y > 0)
-		data->ray.tex_nr = (data->map[data->ray.map_x][data->ray.map_y] - 48);
-	else if (data->ray.side == 0 && data->ray.x > 0)
 		data->ray.tex_nr = (data->map[data->ray.map_x][data->ray.map_y] - 47);
-	else if (data->ray.side == 1 && data->ray.y < 0)
+	else if (data->ray.side == 1 && data->ray.y > 0)
 		data->ray.tex_nr = (data->map[data->ray.map_x][data->ray.map_y] - 46);
+	else if (data->ray.side == 0 && data->ray.x > 0)
+		data->ray.tex_nr = (data->map[data->ray.map_x][data->ray.map_y] - 49);
+	else if (data->ray.side == 1 && data->ray.y < 0)
+		data->ray.tex_nr = (data->map[data->ray.map_x][data->ray.map_y] - 48);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 15:15:01 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/02 14:38:58 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/04 13:32:56 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -80,6 +80,7 @@ void	init_textures(t_data *data)
 				i--;
 				free(data->textures[i]);
 			}
+			free_mlx(data);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -87,13 +88,4 @@ void	init_textures(t_data *data)
 	assign_texture(data, 1, data->ea_path);
 	assign_texture(data, 2, data->so_path);
 	assign_texture(data, 3, data->we_path);
-}
-
-void	free_textures(t_data *data)
-{
-	int	i;
-
-	i = -1;
-	while (i++, i < 4)
-		free(data->textures[i]);
 }

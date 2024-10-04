@@ -6,7 +6,7 @@
 #    By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/27 13:57:50 by lpetit            #+#    #+#              #
-#    Updated: 2024/10/02 13:34:48 by rsainas          ###   ########.fr        #
+#    Updated: 2024/10/04 13:32:18 by rsainas          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -19,7 +19,7 @@ SRCS 	= ./srcs/helper.c ./srcs/map_init.c ./srcs/main.c \
 ./srcs/render.c ./srcs/map_check.c ./srcs/closed.c \
 ./srcs/init_graphics.c ./srcs/events.c \
 ./srcs/cast_rays.c ./srcs/cast_helper.c ./srcs/key_hook.c \
-./srcs/init_player.c ./srcs/init_textures.c
+./srcs/init_player.c ./srcs/init_textures.c ./srcs/freeing.c
 
 LIB_DIR = ./libft
 
@@ -33,12 +33,11 @@ FLAGS	= -Wall -Wextra -Werror -g
 
 MLX_DIR = ./minilibx-linux
 
+MLX		=	$(MLX_DIR)/libmlx.a
+
 HEADERS = includes/cub3d.h
 
 X = -L $(MLX_DIR) -lmlx -L /usr/X11R6/lib -lXext -lX11 -lm -lz -I$(MLX_DIR) -Ilmlx
-
-#X		= 	-L $(MLX_DIR) -lm -lmlx -lX11 -lz -I$(MLX_DIR) -Ilmlx
-#X		= 	-L ${MLX_DIR} -lmlx -lXext -lX11 -lm -lz -I${MLX_DIR} -Ilmlx
 
 #Colors:
 GREEN		=	\e[92;5;118m
@@ -48,10 +47,13 @@ RESET		=	\e[0m
 
 .PHONY: all clean fclean re
 
-all: $(LIB) $(NAME)
+all: $(LIB) $(MLX) $(NAME)
 
 $(LIB):
 	$(MAKE) -C $(LIB_DIR)
+
+$(MLX):
+	$(MAKE) -C $(MLX_DIR)
 
 $(NAME):	$(OBJS) $(HEADERS)
 	@printf "$(CURSIVE)$(GRAY) 	- Compiling $(NAME)... $(RESET)\n"

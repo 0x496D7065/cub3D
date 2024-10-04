@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 19:58:37 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/02 17:43:54 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/04 13:05:21 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,11 @@ int	key_stroke(int key, t_data *data)
 	{
 		ft_putstr_fd(", ESC key pressed.\n", 1);
 		free_textures(data);
+		free_mlx(data);
 		exit (EXIT_SUCCESS);
 	}
 	if (key == 0x77 || key == 0xff52)
-	{			
+	{
 		if (data->map[(int)(data->player.x_i + data->ray.player_x * data->step)]
 				[(int)data->player.y_i] == '0')
 			data->player.x_i += data->ray.player_x * data->step;

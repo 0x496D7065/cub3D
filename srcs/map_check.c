@@ -6,7 +6,7 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 13:16:23 by lpetit            #+#    #+#             */
-/*   Updated: 2024/10/02 19:40:14 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/04 13:19:58 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -59,7 +59,7 @@ void    map_content(char *line, t_data * data)
     while (line)
     {
         if (!check_content(line, data))
-            buffer = ft_strjoin_f(buffer, line);
+            buffer = ft_strjoin_f(buffer, line);//TODO leaks on join fail041024
         else
         {
             free(line);
