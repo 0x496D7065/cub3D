@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:30:20 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/04 13:34:14 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/04 14:46:34 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,13 @@ void	free_array(char **str)
 			free(str[i++]);
 		free(str);
 	}
+}
+
+int	close_window(t_data *data)
+{
+	ft_putstr_fd("EXIT", 1);
+	ft_putstr_fd(", Window X pressed.\n", 1);
+	free_mlx(data);
+	free_textures(data);
+	exit (EXIT_SUCCESS);
 }

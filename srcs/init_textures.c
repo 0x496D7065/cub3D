@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 15:15:01 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/04 13:32:56 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/04 14:40:29 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -75,11 +75,12 @@ void	init_textures(t_data *data)
 		if (!data->textures[i])
 		{
 			printf("Memory allocation failed for a texture %d\n", i);
-			while (i >= 0)
+			while (i > 0)
 			{
 				i--;
 				free(data->textures[i]);
 			}
+			free(data->textures[i]);
 			free_mlx(data);
 			exit(EXIT_FAILURE);
 		}

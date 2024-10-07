@@ -6,14 +6,14 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:07:49 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/02 19:39:39 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/04 14:58:54 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 /*
-@glance		get null term double char array size, max chars and no of lines
+@glance		get null term double char array max size, max chars, max no lines
 */
 
 void	map_size(t_data *data)
