@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 09:03:12 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/02 11:41:17 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/07 13:31:53 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static	void	pixel_addr_init(t_data *data)
 */
 
 static	void	events_init(t_data *data)
-{	
+{
 	mlx_hook(data->win, 17, 0, close_window, data);
 	mlx_key_hook(data->win, key_stroke, data);
 	init_player_pos(data);
@@ -52,7 +52,7 @@ static	void	events_init(t_data *data)
 */
 
 void	init_graphics(t_data *data)
-{	
+{
 	data->mlx = mlx_init();
 	if (!data->mlx)
 		malloc_failure();
@@ -65,7 +65,7 @@ void	init_graphics(t_data *data)
 	}
 	data->img.img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!data->img.img)
-	{	
+	{
 		mlx_destroy_window(data->mlx, data->win);
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);

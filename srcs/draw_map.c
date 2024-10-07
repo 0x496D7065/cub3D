@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:07:49 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/04 14:58:54 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/07 11:46:12 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	draw_map(t_data *data)
 	while (data->map[y] && y < data->map_h)
 	{
 		x = 0;
-		while (x < data->map_w)
+		while (data->map[y][x])
 		{
 			if (data->map[y][x] == '1')
 				color = BLACK;

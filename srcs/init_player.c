@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:08:30 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/02 19:30:27 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/07 13:31:07 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ void	init_player_pos(t_data *data)
 	while (data->map[y] && y < data->map_h)
 	{
 		x = 0;
-		while (x < data->map_w)
+		while (data->map[y][x])
 		{
 			if (data->map[y][x] == 'N' || data->map[y][x] == 'E' ||
 				data->map[y][x] == 'S' || data->map[y][x] == 'W')
-			{	
+			{
 				data->player.x_i = y + 0.51;
 				data->player.y_i = x + 0.51;
 				assign_dir_plane_vectors(data, y, x);

@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:31:04 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/02 16:54:36 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/07 13:24:59 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ void	scale_pos_dir(t_data *data, int i)
 		data->ray.x = 314748366;
 	else
 		data->ray.delta_x = fabs(1 / data->ray.x);
-	if (fabs(data->ray.y) < 1e-8)
-		data->ray.y = 3147483366;
-	else
-		data->ray.delta_y = fabs(1 / data->ray.y);
+	data->ray.delta_y = fabs(1 / data->ray.y);
 }
 
 /*
