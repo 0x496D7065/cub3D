@@ -6,7 +6,7 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:09:19 by lpetit            #+#    #+#             */
-/*   Updated: 2024/10/08 09:50:57 by lpetit           ###   ########.fr       */
+/*   Updated: 2024/10/08 16:35:42 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,16 +138,14 @@ void	map_init(char *path, t_data *data)
 	char	*line;
 
 	data->fd = open(path, O_RDONLY);
-    if (data->fd < 0)
-        err_msg("Can't open map file", data, 0);
-    data->ceiling.set = 0;
-    data->floor.set = 0;
+	if (data->fd < 0)
+		err_msg("Can't open map file", data, 0);
+	data->ceiling.set = 0;
+	data->floor.set = 0;
 	line = init_element(data);
 	if (!line)
 		err_msg("Invalid map configuration", data, 1);
 	map_content(line, data);
-	/*if (check_path(data) == 1)
-		err_msg("Invalid element or texture path", data, 1);*/
 	if (data->player.player_found == 0)
 		err_msg("Invalid map configuration, no player found", data, 1);
 	if (!data->map)

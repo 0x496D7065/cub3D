@@ -6,7 +6,7 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 15:18:09 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/08 09:45:44 by lpetit           ###   ########.fr       */
+/*   Updated: 2024/10/08 16:56:53 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,47 @@ void	rgb_parsing(char *line, t_data *data, int c)
 				parts++;
 		}
 	}
-	if (parts == 3 && c == 'F')
+	if (parts == 3 && !check_rgb_content(line) && c == 'F')
 		set_color_floor(line, data);
-	else if (parts == 3 && c == 'C')
+	else if (parts == 3 && !check_rgb_content(line) && c == 'C')
 		set_color_ceiling(line, data);
-	else if (parts != 3)
+	else if (parts != 3 || check_rgb_content(line))
 	{
 		free (line);
 		err_msg("Invalid RGB configuration", data, 1);
 	}
 }
+
+int	check_rgb_content(char *line)
+{
+	int	i;
+	int	comma;
+
+	i = 1;
+	comma = 0;
+	while (line[i] == 32)
+		i++;
+	if (!ft_isdigit(line[i]))
+		return (1);
+	while (line[i])
+	{
+		if (line[i] == ',')
+			comma++;
+		if (!ft_isdigit(line[i]) && line[i] != 32 && line[i] != ',' && line[i] != '\n')
+		{
+			//printf("%c -< ici\n", line[i]);
+			return (1);
+		}
+		i++;
+	}
+	if (comma != 2)
+	{
+		//printf("test");
+		return (1);
+	}
+	return (0);
+}
+
 /*
 int	set_textures(t_data **data, char *path)
 {

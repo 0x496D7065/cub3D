@@ -6,7 +6,7 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 20:49:45 by lpetit            #+#    #+#             */
-/*   Updated: 2024/10/08 09:45:24 by lpetit           ###   ########.fr       */
+/*   Updated: 2024/10/08 15:47:26 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	if (argc != 2)
-		exit(1);
+		err_msg("Invalid number of argument", &data, 0);
 	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4))
 		err_msg("Invalid map extension", &data, 0);
 	map_init(argv[1], &data);

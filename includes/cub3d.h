@@ -6,7 +6,7 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 20:52:03 by lpetit            #+#    #+#             */
-/*   Updated: 2024/10/08 15:50:22 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/08 16:35:24 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ char	*skip_empty(int fd, t_data *data);
 char	*set_path(char *line, t_data *data, char *path);
 void	get_map_size(t_data *data);
 int		check_rgb(char *line, t_color *element);
+int		check_rgb_content(char *line);
 int		check_path(t_data *data);
 int		check_content(char *line, t_data *data);
 int		check_if_closed(t_data *data);

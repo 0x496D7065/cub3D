@@ -1,4 +1,4 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   helper.c                                           :+:      :+:    :+:   */
@@ -6,16 +6,16 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 14:51:19 by lpetit            #+#    #+#             */
-/*   Updated: 2024/10/02 11:43:06 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/08 15:42:57 by lpetit           ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "cub3d.h"
 
 void	get_map_size(t_data *data)
 {
-	int	i;
-	size_t size;
+	int		i;
+	size_t	size;
 
 	i = 0;
 	if (data->map)
@@ -30,20 +30,20 @@ void	get_map_size(t_data *data)
 	data->map_copy.line_size = size;
 }
 
-char    *skip_empty(int fd, t_data *data)
+char	*skip_empty(int fd, t_data *data)
 {
-    char    *line;
+	char	*line;
 
-    line = get_next_line(fd);
-    if (!line)
-        return (NULL);
-    while (line && ft_strncmp(line, "\n", 1) == 0)
-    {
-        data->map_start++;
-        free(line);
-        line = get_next_line(fd);
-    }
-    return (line);
+	line = get_next_line(fd);
+	if (!line)
+		return (NULL);
+	while (line && ft_strncmp(line, "\n", 1) == 0)
+	{
+		data->map_start++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	return (line);
 }
 
 void	free_all_tab(char **tab)
