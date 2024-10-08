@@ -6,7 +6,7 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 20:52:03 by lpetit            #+#    #+#             */
-/*   Updated: 2024/10/04 13:54:57 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/08 09:45:32 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_pos
 	size_t	y;
 	double	x_i;
 	double	y_i;
+	char	face;
 	int		player_found;
 }	t_pos;
 
@@ -87,6 +88,7 @@ typedef struct s_color
 	int	r;
 	int	g;
 	int	b;
+	int	set;
 }	t_color;
 
 typedef struct s_img
@@ -125,22 +127,26 @@ typedef struct s_data
 	double	rot;
 	int		closed;
 	int		fd;
+	void	*check[4];
 }	t_data;
 
 // Parsing
 char	**ft_split(char const *s, char c);
 char	*init_element(t_data *data);
 char	*skip_empty(int fd, t_data *data);
-char	*set_path(char *line, t_data *data);
+char	*set_path(char *line, t_data *data, char *path);
 void	get_map_size(t_data *data);
-int		check_rgb(char *line);
+int		check_rgb(char *line, t_color *element);
+int		check_path(t_data *data);
 int		check_content(char *line, t_data *data);
 int		check_if_closed(t_data *data);
 void	map_init(char *path, t_data *data);
 void	map_content(char *line, t_data *data);
 void	parse_element(char *line, t_data *data);
+void	rgb_parsing(char *line, t_data *data, int c);
 void	set_color_ceiling(char *line, t_data *data);
 void	set_color_floor(char *line, t_data *data);
+void	element_to_null(t_data *data);
 
 // Error handling
 void	free_all_tab(char **tab);

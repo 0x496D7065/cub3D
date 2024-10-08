@@ -1,4 +1,4 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,9 +6,9 @@
 #    By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/27 13:57:50 by lpetit            #+#    #+#              #
-#    Updated: 2024/10/04 14:47:54 by rsainas          ###   ########.fr        #
+#    Updated: 2024/10/08 08:20:12 by lpetit           ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 NAME	= cub3D
 
@@ -16,7 +16,7 @@ CC		= cc
 
 SRCS 	= ./srcs/helper.c ./srcs/map_init.c ./srcs/main.c \
 ./gnl/get_next_line.c ./gnl/get_next_line_utils.c ./srcs/draw_map.c \
-./srcs/render.c ./srcs/map_check.c ./srcs/closed.c \
+./srcs/render.c ./srcs/map_check.c ./srcs/closed.c ./srcs/map_check_add.c \
 ./srcs/init_graphics.c \
 ./srcs/cast_rays.c ./srcs/cast_helper.c ./srcs/key_hook.c \
 ./srcs/init_player.c ./srcs/init_textures.c ./srcs/freeing.c
