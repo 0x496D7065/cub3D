@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 19:58:37 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/04 13:05:21 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/08 15:57:48 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ int	key_stroke(int key, t_data *data)
 	key_strafe(key, data);
 	key_l(key, data);
 	key_r(key, data);
-	render(data);
+	if (key == 0x77 || key == 0x73 || key == 0xff52 || key == 0xff54
+		|| key == 0x61 || key == 0x64 || key == 0xff51 || key == 0xff53)
+		render(data);
 	return (0);
 }

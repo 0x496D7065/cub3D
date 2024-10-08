@@ -6,7 +6,7 @@
 /*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 15:15:01 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/04 14:40:29 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/08 15:30:23 by rsainas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -46,11 +46,13 @@ static void	assign_texture(t_data *data, int tex_num, char *path)
 	if (!img || width != TEXTURE_W || height != TEXTURE_H)
 	{
 		printf("Loading failed to a texture: %s\n", path);
-		while (tex_num >= 0)
+		tex_num = 0;
+		while (tex_num < 4)
 		{
 			free(data->textures[tex_num]);
-			tex_num--;
+			tex_num++;
 		}
+		free_mlx(data);
 		exit(EXIT_FAILURE);
 	}
 	img_data = (int *)mlx_get_data_addr(img, &data->img.bits_per_pixel,
