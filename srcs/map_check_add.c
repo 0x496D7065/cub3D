@@ -6,7 +6,7 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 15:18:09 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/08 16:56:53 by lpetit           ###   ########.fr       */
+/*   Updated: 2024/10/08 17:11:26 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,18 +83,13 @@ int	check_rgb_content(char *line)
 	{
 		if (line[i] == ',')
 			comma++;
-		if (!ft_isdigit(line[i]) && line[i] != 32 && line[i] != ',' && line[i] != '\n')
-		{
-			//printf("%c -< ici\n", line[i]);
+		if (!ft_isdigit(line[i]) && line[i] != 32 && line[i] != ','
+			&& line[i] != '\n')
 			return (1);
-		}
 		i++;
 	}
 	if (comma != 2)
-	{
-		//printf("test");
 		return (1);
-	}
 	return (0);
 }
 
