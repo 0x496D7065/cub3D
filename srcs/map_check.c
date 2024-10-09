@@ -6,7 +6,7 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 13:16:23 by lpetit            #+#    #+#             */
-/*   Updated: 2024/10/08 16:36:26 by lpetit           ###   ########.fr       */
+/*   Updated: 2024/10/09 15:06:00 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,14 @@ void	map_content(char *line, t_data *data)
 	while (line)
 	{
 		if (!check_content(line, data))
+		{
 			buffer = ft_strjoin_f(buffer, line);
+			if (!buffer)
+			{
+				free(line);
+				err_msg("Malloc failed during map checking", data, 1);
+			}
+		}
 		else
 		{
 			free(line);

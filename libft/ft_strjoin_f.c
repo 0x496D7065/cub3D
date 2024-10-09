@@ -6,7 +6,7 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 13:21:04 by lpetit            #+#    #+#             */
-/*   Updated: 2024/10/08 15:38:50 by lpetit           ###   ########.fr       */
+/*   Updated: 2024/10/09 15:11:49 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,18 @@ char	*ft_strjoin_f(char *s1, char *s2)
 	size_t	i;
 	size_t	w;
 
-	i = 0;
+	i = -1;
 	w = 0;
 	jstr = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!jstr)
-		return (NULL);
-	if (s1)
 	{
-		while (s1[i])
-		{
-			jstr[i] = s1[i];
-			i++;
-		}
+		if (s1 != NULL)
+			free(s1);
+		return (NULL);
 	}
+	if (s1)
+		while (s1[++i])
+			jstr[i] = s1[i];
 	if (s2)
 		while (s2[w])
 			jstr[i++] = s2[w++];
