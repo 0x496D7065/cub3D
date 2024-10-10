@@ -6,9 +6,10 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 12:14:02 by lpetit            #+#    #+#             */
-/*   Updated: 2023/09/12 14:37:12 by lpetit           ###   ########.fr       */
+/*   Updated: 2024/10/10 13:48:24 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stddef.h>
 
 size_t	ft_strlen(char const *str)
@@ -16,6 +17,8 @@ size_t	ft_strlen(char const *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (i);
 	while (str[i])
 		i++;
 	return (i);

@@ -6,7 +6,7 @@
 /*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 13:21:04 by lpetit            #+#    #+#             */
-/*   Updated: 2024/10/09 15:11:49 by lpetit           ###   ########.fr       */
+/*   Updated: 2024/10/10 13:52:40 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ char	*ft_strjoin_f(char *s1, char *s2)
 
 	i = -1;
 	w = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	jstr = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!jstr)
 	{
-		if (s1 != NULL)
-			free(s1);
+		free(s1);
 		return (NULL);
 	}
 	if (s1)
