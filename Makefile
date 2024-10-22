@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+         #
+#    By: lpetit <lpetit@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/27 13:57:50 by lpetit            #+#    #+#              #
-#    Updated: 2024/10/08 08:20:12 by lpetit           ###   ########.fr        #
+#    Updated: 2024/10/22 12:18:19 by lpetit           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,13 +31,13 @@ OBJS	= $(SRCS:.c=.o)
 
 FLAGS	= -Wall -Wextra -Werror -g
 
-MLX_DIR = ./minilibx-linux
+MLX_DIR = ./minilibx
 
 MLX		=	$(MLX_DIR)/libmlx.a
 
 HEADERS = includes/cub3d.h
 
-X = -L $(MLX_DIR) -lmlx -L /usr/X11R6/lib -lXext -lX11 -lm -lz -I$(MLX_DIR) -Ilmlx
+X = -L includes/ -lmlx -framework OpenGL -framework AppKit
 
 #Colors:
 GREEN		=	\e[92;5;118m
@@ -57,7 +57,7 @@ $(MLX):
 
 $(NAME):	$(OBJS) $(HEADERS)
 	@printf "$(CURSIVE)$(GRAY) 	- Compiling $(NAME)... $(RESET)\n"
-	$(CC) $(FLAGS) -I$(INCLUDES) $(OBJS) $(LIB) $(X) -o $(NAME)
+	$(CC) $(FLAGS) -I$(INCLUDES) -o $(NAME) $(OBJS) $(LIB) $(X)
 	@printf "$(GREEN)    - Executable ready.\n$(RESET)"
 
 %.o: %.c

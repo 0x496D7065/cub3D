@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
+/*   By: lpetit <lpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 19:58:37 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/08 15:57:48 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/22 14:18:29 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 static void	key_strafe(int key, t_data *data)
 {
-	if (key == 0x61)
+	if (key == 0)
 	{
 		if (data->map[(int)(data->player.x_i - data->ray.plane_x * data->step)]
 				[(int)data->player.y_i] == '0' &&
@@ -30,7 +30,7 @@ static void	key_strafe(int key, t_data *data)
 			data->player.y_i -= data->ray.plane_y * data->step;
 		}
 	}
-	if (key == 0x64)
+	if (key == 2)
 	{
 		if (data->map[(int)(data->player.x_i + data->ray.plane_x * data->step)]
 				[(int)data->player.y_i] == '0' &&
@@ -56,7 +56,7 @@ static void	key_l(int key, t_data *data)
 
 	temp_player_x = data->ray.player_x;
 	temp_plane_x = data->ray.plane_x;
-	if (key == 0xff51)
+	if (key == 123)
 	{
 		data->ray.player_x = data->ray.player_x * cos(data->rot)
 			- data->ray.player_y * sin(data->rot);
@@ -76,7 +76,7 @@ static void	key_r(int key, t_data *data)
 
 	temp_player_x = data->ray.player_x;
 	temp_plane_x = data->ray.plane_x;
-	if (key == 0xff53)
+	if (key == 124)
 	{
 		data->ray.player_x = data->ray.player_x * cos(-data->rot)
 			- data->ray.player_y * sin(-data->rot);
@@ -91,7 +91,7 @@ static void	key_r(int key, t_data *data)
 
 static void	key_step_back(int key, t_data *data)
 {
-	if (key == 0x73 || key == 0xff54)
+	if (key == 1 || key == 125)
 	{
 		if (data->map[(int)(data->player.x_i - data->ray.player_x * data->step)]
 				[(int)data->player.y_i] == '0')
@@ -111,14 +111,14 @@ static void	key_step_back(int key, t_data *data)
 
 int	key_stroke(int key, t_data *data)
 {
-	if (key == 0xff1b)
+	if (key == 53)
 	{
 		ft_putstr_fd(", ESC key pressed.\n", 1);
 		free_textures(data);
 		free_mlx(data);
 		exit (EXIT_SUCCESS);
 	}
-	if (key == 0x77 || key == 0xff52)
+	if (key == 13 || key == 126)
 	{
 		if (data->map[(int)(data->player.x_i + data->ray.player_x * data->step)]
 				[(int)data->player.y_i] == '0')
@@ -131,8 +131,8 @@ int	key_stroke(int key, t_data *data)
 	key_strafe(key, data);
 	key_l(key, data);
 	key_r(key, data);
-	if (key == 0x77 || key == 0x73 || key == 0xff52 || key == 0xff54
-		|| key == 0x61 || key == 0x64 || key == 0xff51 || key == 0xff53)
+	if (key == 13 || key == 1 || key == 0 || key == 2
+		|| key == 126 || key == 125 || key == 123 || key == 124)
 		render(data);
 	return (0);
 }

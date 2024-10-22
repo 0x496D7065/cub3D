@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
+/*   By: lpetit <lpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:07:49 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/07 11:46:12 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/22 14:19:04 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	draw_map_cell(t_data *data, int left_x, int left_y, int color)
 	while (i < data->m_cell_size)
 	{
 		j = 0;
-		while (j++ < data->m_cell_size)
+		while (++j < data->m_cell_size)
 			pixel_put(&data->img, i + left_x, j + left_y, color);
 		i++;
 	}
@@ -92,14 +92,14 @@ void	draw_ceiling_floor(t_data *data)
 	while (i < WIN_HEIGHT / 2)
 	{
 		j = 0;
-		while (j++ < WIN_WIDTH)
+		while (++j < WIN_WIDTH)
 			pixel_put(&data->img, j, i, color_base_hex(data->ceiling));
 		i++;
 	}
 	while (i < WIN_HEIGHT)
 	{
 		j = 0;
-		while (j++ < WIN_WIDTH)
+		while (++j < WIN_WIDTH)
 			pixel_put(&data->img, j, i, color_base_hex(data->floor));
 		i++;
 	}

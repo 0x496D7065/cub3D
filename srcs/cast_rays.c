@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
+/*   By: lpetit <lpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 06:37:59 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/04 11:37:50 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/22 13:44:23 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "cub3d.h"
 
+#include "cub3d.h"
 /*			Calculate distance of perpendicular ray (
 			Euclidean distance would give fisheye effect!)*/
 /*
@@ -40,7 +40,7 @@ static void	dist_to_wall(t_data *data)
 		data->ray.line_start = 0;
 	data->ray.line_end = data->ray.line_h / 2 + WIN_HEIGHT / 2;
 	if (data->ray.line_end >= WIN_HEIGHT)
-		data->ray.line_end = WIN_HEIGHT - 1;
+		data->ray.line_end = WIN_HEIGHT;
 }
 
 /*
@@ -118,8 +118,8 @@ void	cast_rays(t_data *data)
 		move_along_ray_dda(data);
 		dist_to_wall(data);
 		comp_textures(data);
-		y = data->ray.line_start;
-		while (y++, y < data->ray.line_end)
+		y = data->ray.line_start - 1;
+		while (++y, y < data->ray.line_end)
 		{
 			data->ray.tex_y = (int)data->ray.tex_pos & (TEXTURE_H - 1);
 			data->ray.tex_pos += data->ray.step;

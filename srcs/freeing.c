@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   freeing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
+/*   By: lpetit <lpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:30:20 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/04 14:46:34 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/22 14:11:34 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	free_mlx(t_data *data)
 {
 	mlx_destroy_image(data->mlx, data->img.img);
 	mlx_destroy_window(data->mlx, data->win);
-	mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	free_texture_path(data);
 	free_array(data->map);

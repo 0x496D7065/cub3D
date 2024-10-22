@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
+/*   By: lpetit <lpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 09:22:23 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/02 11:45:56 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/22 14:13:12 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int	render(t_data *data)
 
 	y = -1;
 	ratio = WIN_WIDTH / 4;
-	while (y++ < WIN_HEIGHT)
+	while (++y < WIN_HEIGHT)
 	{
 		x = -1;
-		while (x++ < WIN_WIDTH)
+		while (++x < WIN_WIDTH)
 			is_pixel_bounded(data, x, y, ratio);
 	}
 	if (data->player.player_found)

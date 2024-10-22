@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_graphics.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsainas <rsainas@student.s19.be>           +#+  +:+       +#+        */
+/*   By: lpetit <lpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 09:03:12 by rsainas           #+#    #+#             */
-/*   Updated: 2024/10/07 13:31:53 by rsainas          ###   ########.fr       */
+/*   Updated: 2024/10/22 14:11:58 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static	void	pixel_addr_init(t_data *data)
 	{
 		mlx_destroy_image(data->mlx, data->img.img);
 		mlx_destroy_window(data->mlx, data->win);
-		mlx_destroy_display(data->mlx);
 		free(data->mlx);
 		malloc_failure();
 	}
@@ -59,7 +58,6 @@ void	init_graphics(t_data *data)
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, data->name);
 	if (!data->win)
 	{
-		mlx_destroy_display(data->mlx);
 		free(data->mlx);
 		malloc_failure();
 	}
@@ -67,7 +65,6 @@ void	init_graphics(t_data *data)
 	if (!data->img.img)
 	{
 		mlx_destroy_window(data->mlx, data->win);
-		mlx_destroy_display(data->mlx);
 		free(data->mlx);
 		malloc_failure();
 	}

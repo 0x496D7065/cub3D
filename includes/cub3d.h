@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpetit <lpetit@student.s19.be>             +#+  +:+       +#+        */
+/*   By: lpetit <lpetit@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 20:52:03 by lpetit            #+#    #+#             */
-/*   Updated: 2024/10/08 16:35:24 by lpetit           ###   ########.fr       */
+/*   Updated: 2024/10/22 14:12:09 by lpetit           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@
 # include "libft.h"
 # include "get_next_line.h"
 # include <stdio.h>
-# include "../minilibx-linux/mlx.h"
+# include <mlx.h>
 # include "math.h"
-# include <X11/X.h>
 
 // Main settings
-# define WIN_WIDTH 1000
-# define WIN_HEIGHT 800
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
 # define H_FOV 90
 # define TEXTURE_H 64
 # define TEXTURE_W 64
